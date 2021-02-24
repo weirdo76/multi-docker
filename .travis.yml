@@ -16,7 +16,7 @@ after_success:
   - docker build -t weirdoal/multi-server ./server
   - docker build -t weirdoal/multi-worker ./worker
   # Log in to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub
   - docker push weirdoal/multi-client
   - docker push weirdoal/multi-nginx
