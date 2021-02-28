@@ -22,3 +22,15 @@ after_success:
   - docker push weirdoal/multi-nginx
   - docker push weirdoal/multi-server
   - docker push weirdoal/multi-worker
+
+  deploy:
+    provider: elasticbeanstalk
+    region: "eu-west-2"
+    app: "Multi-Docker"
+    env: "Multidocker-env"
+    bucket_name: "elasticbeanstalk-eu-west-2-864166960834"
+    bucket_path: "docker-multi"
+    on: 
+      branch: "main"
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
