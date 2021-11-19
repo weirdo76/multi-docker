@@ -1,0 +1,22 @@
+Folder: Client - contains frontend React app
+  Folder: nginx - containers config for Client app routing
+	  File: default.conf - configuration to listen on port 3000 and route "/" to index.html
+  File: Dockerfile.dev - contains configuration for building dev image of this app
+  File: Dockerfile - contains configuration for building production image of this app
+			
+Folder: Nginx - contains config for routing traffic to Client or Server app
+  File: default.conf - contains configuration to route "/api" traffic to Server and "/" traffic to Client, as well as listening on port 80
+	File: Dockerfile.dev - contains configuration for building dev image of this app
+	File: Dockerfile - contains configuration for building production image of this app
+			
+Folder: Server  - contains code for api Server app 
+	File: Dockerfile.dev - contains configuration for building dev image of this app
+	File: Dockerfile - contains configuration for building production image of this app
+			
+Folder: Worker - contains code for worker app, watches Redis and calculates Fibonacci value
+	File: Dockerfile.dev - contains configuration for building dev image of this app
+	File: Dockerfile - contains configuration for building production image of this app
+			
+File: .travis.yml - configuration file to tell Travis CI what to do when a change is committed GitHub (Travis watches GitHub branch and reads this file)
+File: docker-compose.yml - configuration to tell Docker how to build/configure multiple containers that are dependent on each other
+File: Dockerrun.aws.json - configuration to tell AWS how to build the containers in the AWS Elastic Beanstalk Envrionment
